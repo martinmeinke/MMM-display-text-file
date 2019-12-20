@@ -16,7 +16,7 @@ Module.register('MMM-display-text-file', {
     this.content = '';
     this.readFile();
     setInterval(() => {
-      this.checkHosts();
+      this.readFile();
     }, this.config.updateInterval * 60000);
   },
 
@@ -34,7 +34,7 @@ Module.register('MMM-display-text-file', {
   },
 
   socketNotificationReceived(notification, payload) {
-    if (notification === 'HOST') {
+    if (notification === 'TEXT_FILE_CONTENTS') {
       this.content = payload.content;
       this.updateDom();
     }
