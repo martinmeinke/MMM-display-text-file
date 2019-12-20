@@ -14,10 +14,15 @@ const fs = require('fs');
 module.exports = NodeHelper.create({
   socketNotificationReceived(notification, payload) {
     if (notification === 'READ_FILE_CONTENTS') {
+      var self = this;
       fs.readFile(payload, 'utf8', function(err, data) {
-        if (err) throw err;
-        this.sendSocketNotification(
-            'TEXT_FILE_CONTENTS', {filename, content: data});
+        if (err) {
+          self.sendSocketNotification(
+              'TEXT_FILE_CONTENTS', {payload, content: 'not found'});
+        } else {
+          self.sendSocketNotification(
+              'TEXT_FILE_CONTENTS', {payload, content: data});
+        }
       });
     }
   }

@@ -28,7 +28,7 @@ Module.register('MMM-display-text-file', {
     const wrapper = document.createElement('div');
     wrapper.classList.add(this.config.font);
     wrapper.style.textAlign = 'left';
-    div.innerHTML = this.content;
+    wrapper.innerHTML = this.content;
 
     return wrapper;
   },
