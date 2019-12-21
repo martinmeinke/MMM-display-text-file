@@ -22,8 +22,11 @@ Module.register('MMM-display-text-file', {
     const wrapper = document.createElement('div');
     wrapper.classList.add(this.config.font);
     wrapper.style.textAlign = 'left';
-    wrapper.innerHTML = this.content;
 
+    const preformatted = document.createElement('pre');
+    preformatted.innerHTML = this.content;
+
+    wrapper.appendChild(preformatted);
     return wrapper;
   },
 
