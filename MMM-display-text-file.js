@@ -3,13 +3,7 @@
  */
 
 Module.register('MMM-display-text-file', {
-  defaults: {
-    colored: false,
-    display: 'both',
-    filename: '/tmp/test.txt',
-    updateInterval: 1,
-    font: 'medium'
-  },
+  defaults: {filename: '/tmp/test.txt', updateInterval: 1, font: 'medium'},
 
   start() {
     Log.info(`Starting module: ${this.name}`);
